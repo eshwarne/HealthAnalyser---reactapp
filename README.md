@@ -1,1 +1,1 @@
-## Log your daily health activies using health logger
+## Log your daily health activities using health logger
