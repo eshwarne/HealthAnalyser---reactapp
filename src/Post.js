@@ -24,21 +24,33 @@ class Post extends Component{
 
     render(){
 
-        const toPost=this.props.posts.find((post) => {return post.userId=this.props.match.params.postId})
-        return(
-            <div className="container">
+        const toPost=this.props.post;
+        const toPostt=toPost?(<div className="container">
         <p className="collection-header"> ID : {toPost.userId} </p>
         <p className="collection-item">Title : {toPost.title}</p>
         <p className="collection-item">Content : { toPost.body }</p>
-    </div>
+        <button onClick={() =>  this.props.deletePost(toPost.userId) }>DELETE BUTTON</button>
+    </div>) : (<p>SORRY DELETED THAT</p>)
+        return(
+            toPostt
         )
     }
 }
 
 //subscribing
-const mapStateToProps = (state) => {
-    return {
-        posts:state.doctorPosts
-    } //return js object
+const mapStateToProps = (state,ownProps) => {
+   
+    const id = ownProps.match.params.postId
+    const post=state.doctorPosts.find((post) => {return post.userId==id})
+    console.log(post)
+    return {post}
 }
-export default connect(mapStateToProps)(Post); // wrapping functions
+
+
+//store.dispatch(action) here, dispatch is a callback function passed by connect
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost : (ids) => dispatch({type:'DELETE_POST',id:ids})
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Post); // wrapping functions

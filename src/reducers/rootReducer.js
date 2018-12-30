@@ -6,6 +6,13 @@ const initState = {
     ]
 }
 const rootReducer = (state = initState, action) =>{
-    return state;
+
+    if(action.type==='DELETE_POST'){
+        let newPosts = state.doctorPosts.filter((post) => post.userId!==action.id);
+       return ({
+            doctorPosts:newPosts
+        })
+    }
+    return state
 }
 export default rootReducer;
