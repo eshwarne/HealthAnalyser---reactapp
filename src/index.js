@@ -1,3 +1,5 @@
+//Index.js : This is where all things set up! The index.js gets the html of the index.html file, and we use that
+//line19 uses Vanilla js to get elements of index.html file
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
