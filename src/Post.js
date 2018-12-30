@@ -1,22 +1,22 @@
 //Route tag sends props by itself with a few parameters
 import React, { Component } from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 class Post extends Component{
     state={
         post:null
     }
     componentDidMount(){
-        const id= this.props.match.params.postId
-        const url="https://jsonplaceholder.typicode.com/posts/"+id;
-        axios.get(url).then((response)=>{
-            console.log(response)
-            this.setState(
+        // const id= this.props.match.params.postId
+        // const url="https://jsonplaceholder.typicode.com/posts/"+id;
+        // axios.get(url).then((response)=>{
+        //     console.log(response)
+        //     this.setState(
                 
-                {post : response.data}
+        //         {post : response.data}
                 
-            )
+        //     )
             
-        })
+        // })
     }
     render(){
         const toPost=(this.state.post)? (<div className="container">

@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
 class Posts extends Component{
     state = {
         Doctorsposts:[]
     }
     componentDidMount(){
-        axios.get("https://jsonplaceholder.typicode.com/posts")
-        .then(response => {
-            const Doctorsposts=response.data.slice(0,5)
-            this.setState(
-                {Doctorsposts}
-            )
-        })
+        // axios.get("https://jsonplaceholder.typicode.com/posts")
+        // .then(response => {
+        //     const Doctorsposts=response.data.slice(0,5)
+        //     this.setState(
+        //         {Doctorsposts}
+        //     )
+        // })
     }
     render(){
         const doctorPostsMapped=this.state.Doctorsposts.length?(
